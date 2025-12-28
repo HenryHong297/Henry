@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>{% if title %}{{ title }} — {% endif %}Henry Hong</title>
+    <link rel="stylesheet" href="/assets/styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <h1><a href="/">{{ siteTitle | default("Your Name") }}</a></h1>
+      <nav>
+        <a href="/#projects">Projects</a>
+        <a href="/#gallery">Gallery</a>
+        <a href="/docs/">Docs</a>
+        <a href="/about/">About</a>
+      </nav>
+    </header>
+
+    <main>
+      {{ content | safe }}
+    </main>
+
+    <footer>
+      <p>© {{ "now" | date("yyyy") }} Henry — <a href="mailto:you@example.com">you@example.com</a></p>
+    </footer>
+  </body>
+</html>

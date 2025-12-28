@@ -1,0 +1,28 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Content Manager</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+  </head>
+  <body>
+    <!-- Netlify CMS -->
+    <script src="https://unpkg.com/netlify-cms-app@^2.0.0/dist/netlify-cms.js"></script>
+    <!-- Point Netlify CMS to the config file -->
+    <script>
+      window.CMS_MANUAL_INIT = true;
+    </script>
+    <script>
+      fetch('/admin/config.yml')
+        .then(res => res.text())
+        .then(cfg => {
+          // initialize the CMS using the YAML config path (Netlify will request it automatically,
+          // but this ensures manual init when served from /admin)
+          window.NetlifyCMS.init({ config: '/admin/config.yml' });
+        })
+        .catch(err => {
+          console.error('Could not load Netlify CMS config:', err);
+        });
+    </script>
+  </body>
+</html>

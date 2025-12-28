@@ -1,0 +1,40 @@
+---
+title: Home
+layout: _includes/layout.njk
+---
+
+<section id="hero" class="hero">
+  <h2>Engineer • Designer • Maker</h2>
+  <p>Short tagline describing what you do.</p>
+</section>
+
+<section id="projects" class="container">
+  <h3>Projects</h3>
+  <div class="grid">
+    {% for project in collections.projects %}
+      <article class="project">
+        <a href="{{ project.url }}">
+          {% if project.data.thumb %}
+            <img src="{{ project.data.thumb }}" alt="{{ project.data.title }}" />
+          {% endif %}
+          <h4>{{ project.data.title }}</h4>
+        </a>
+        <p>{{ project.data.summary }}</p>
+      </article>
+    {% endfor %}
+  </div>
+</section>
+
+<section id="gallery" class="container">
+  <h3>Gallery</h3>
+  <div class="grid">
+    <!-- Place images in src/photos/ via the CMS or push to repo -->
+    <img src="/photos/photo1.jpg" alt="Design 1" />
+    <img src="/photos/photo2.jpg" alt="Design 2" />
+  </div>
+</section>
+
+<section id="docs" class="container">
+  <h3>Documentation</h3>
+  <p><a href="/docs/">See documentation</a></p>
+</section>
